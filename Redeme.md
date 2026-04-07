@@ -1,65 +1,57 @@
-***
-```markdown
-# House Price Prediction - Setup & Execution Guide
+# House Price Prediction - Setup Guide
 
-This guide provides step-by-step instructions to clone, set up, and run the Intelligent Property Valuation web application on any local machine.
+Follow these steps to set up and run the Intelligent Property Valuation web app locally.
 
 ## Prerequisites
-Before you begin, ensure you have the following installed on your system:
-* **Python 3.8+** (Add to PATH during installation)
-* **Git**
+- Python 3.8+ (add to PATH during installation)
+- Git
 
----
-
-## 1. Clone the Repository
-Open your terminal (Command Prompt, PowerShell, or Git Bash) and clone the project directory:
+## 1) Clone the repository
+Open Command Prompt, PowerShell, or Git Bash:
 ```bash
-git clone [https://github.com/vivekmisar/House_Prediction.git](https://github.com/vivekmisar/House_Prediction.git)
+git clone https://github.com/vivekmisar/House_Prediction.git
 cd House_Prediction
 ```
 
-## 2. Set Up a Virtual Environment
-It is highly recommended to run this project inside a virtual environment to prevent dependency conflicts.
+## 2) Create and activate a virtual environment
 ```bash
-# Create the virtual environment
 python -m venv venv
+```
+Activate it:
 
-# Activate the virtual environment
-# On Windows:
+Windows:
+```bash
 .\venv\Scripts\activate
-# On macOS/Linux:
+```
+
+macOS/Linux:
+```bash
 source venv/bin/activate
 ```
 
-## 3. Install Dependencies
-With your virtual environment activated, install all required machine learning and web frameworks using the provided requirements file:
+## 3) Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## 4. Download the Dataset
-The machine learning model requires training data. 
-1. Go to the [Kaggle Ames Housing Dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data).
-2. Download the `train.csv` file.
-3. Place `train.csv` directly into the root folder of this project (same level as `manage.py`).
+## 4) Download the dataset
+1. Go to the Kaggle Ames Housing Dataset: https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+2. Download `train.csv`.
+3. Place `train.csv` in the project root (same folder as `manage.py`).
 
-## 5. Train the Machine Learning Model
-Generate the Random Forest Regressor model. This script will clean the dataset, train the model, and export it as a serialized `.pkl` file.
+## 5) Train the model
+This creates `house_model.pkl`:
 ```bash
 python train_model.py
 ```
-*Note: Wait for the console to print "Model saved!". You should see a new file named `house_model.pkl` appear in your directory.*
+Wait for the message "Model saved!" and confirm the file appears in the root folder.
 
-## 6. Run the Web Application
-Start the Django development server to launch the frontend UI:
+## 6) Run the web app
 ```bash
 python manage.py runserver
 ```
-Open your web browser and navigate to: **http://127.0.0.1:8000/**
+Open http://127.0.0.1:8000/ in your browser.
 
 ## Troubleshooting
-* **Error: `ModuleNotFoundError`**: Ensure your virtual environment is activated and you ran the `pip install` command.
-* **Error: `FileNotFoundError: [Errno 2] No such file or directory: 'train.csv'`**: Make sure you downloaded the dataset from Kaggle and placed it in the correct root directory before running `train_model.py`.
-```
-
-*** Once you push this Markdown file and your `requirements.txt` to your repo, anyone can pull it down and have it running in 60 seconds flat!
+- `ModuleNotFoundError`: activate the virtual environment, then run `pip install -r requirements.txt`.
+- `FileNotFoundError: train.csv`: confirm the file is in the project root before running `train_model.py`.
