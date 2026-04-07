@@ -1,8 +1,3 @@
-Here is the extremely detailed, presentation-ready documentation. Save this entire block as your `README-details.md`. 
-
-This is written specifically so that if you read through it, you will have all the vocabulary and conceptual understanding needed to confidently defend this project in front of your faculty.
-
-***
 
 # Comprehensive Project Documentation: Intelligent Property Valuation
 
