@@ -28,8 +28,8 @@ This project implements a **decoupled architecture**, separating the machine lea
 ## 📚 Project Documentation
 To keep the repository clean, detailed information has been split into specific documents:
 
-1. **[Setup & Execution Guide](README-setup.md)**: Step-by-step instructions on how to clone, install dependencies, train the model, and run the server locally.
-2. **[Architecture & Algorithm Details](README-details.md)**: A deep dive into the math behind the Random Forest, the data preprocessing steps, and the Django routing logic.
+1. **[Setup & Execution Guide](README-Redeme.md)**: Step-by-step instructions on how to clone, install dependencies, train the model, and run the server locally.
+2. **[Architecture & Algorithm Details](README-Redeme_Details)**: A deep dive into the math behind the Random Forest, the data preprocessing steps, and the Django routing logic.
 
 ---
 *Developed as an academic project demonstrating the integration of predictive machine learning models into functional web applications.*
