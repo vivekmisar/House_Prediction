@@ -3,169 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Price Predictor</title>
+    <title>Carbon-Cop | Property Valuation</title>
     <style>
-        :root {
-            --bg-color: #f4f4f9;
-            --container-bg: #ffffff;
-            --text-color: #333333;
-            --border-color: #cccccc;
-            --primary-btn: #007bff;
-            --primary-btn-hover: #0056b3;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --text-color: #f4f4f9;
-            --border-color: #444444;
-            --primary-btn: #bb86fc;
-            --primary-btn-hover: #9b59b6;
+        :root {
+            --bg-left: #0f172a;
+            --bg-right: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --input-bg: #334155;
+            --border: #475569;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
             display: flex;
+            height: 100vh;
+            background-color: var(--bg-right);
+            color: var(--text-main);
+            overflow: hidden;
+        }
+
+        .hero-section {
+            flex: 1;
+            background-color: var(--bg-left);
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin: 0 0 20px 0;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            transition: background-color 0.3s, color 0.3s;
         }
 
-        .container {
-            background-color: var(--container-bg);
-            padding: 30px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .form-container {
+            background-color: var(--bg-left);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             width: 100%;
-            max-width: 400px;
-            position: relative;
-            transition: background-color 0.3s;
-        }
-
-        .theme-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.2rem;
-        }
-
-        h2 {
-            margin-top: 0;
-            text-align: center;
-            font-weight: 600;
+            max-width: 450px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
         input[type="number"] {
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            background-color: transparent;
-            color: var(--text-color);
+            padding: 12px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
         }
 
-        button.submit-btn {
+        input[type="number"]:focus {
+            border-color: var(--accent);
+        }
+
+        button {
             width: 100%;
-            padding: 12px;
-            background-color: var(--primary-btn);
-            color: #fff;
+            padding: 14px;
+            background-color: var(--accent);
+            color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.2s;
             margin-top: 10px;
         }
 
-        button.submit-btn:hover {
-            background-color: var(--primary-btn-hover);
+        button:hover {
+            background-color: var(--accent-hover);
         }
 
         .result {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(0, 123, 255, 0.1);
-            border-left: 4px solid var(--primary-btn);
-            border-radius: 4px;
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(167,139,250,0.2));
+            border: 1px solid var(--accent);
+            border-radius: 8px;
             text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .amount-words {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <button class="theme-switch" onclick="toggleTheme()">🌓</button>
-        <h2>Price Predictor</h2>
-        
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Overall Quality (1-10)</label>
-                <input type="number" name="overall_qual" required min="1" max="10" value="5">
-            </div>
-            <div class="form-group">
-                <label>Living Area (sq ft)</label>
-                <input type="number" name="gr_liv_area" required value="1500">
-            </div>
-            <div class="form-group">
-                <label>Garage Capacity (Cars)</label>
-                <input type="number" name="garage_cars" required value="2">
-            </div>
-            <div class="form-group">
-                <label>Basement Area (sq ft)</label>
-                <input type="number" name="total_bsmt_sf" required value="1000">
-            </div>
-            <div class="form-group">
-                <label>Full Bathrooms</label>
-                <input type="number" name="full_bath" required value="2">
-            </div>
-            <button type="submit" class="submit-btn">Predict Price</button>
-        </form>
-
-        {% if prediction %}
-        <div class="result">
-            Estimated Price: {{ prediction }}
-        </div>
-        {% endif %}
+    <div class="hero-section">
+        <h1>Intelligent Property Valuation</h1>
+        <p>A machine learning approach to real estate pricing. This platform utilizes an ensemble Random Forest Regressor to analyze historical property data and generate highly accurate market value estimations in real-time.</p>
     </div>
 
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        }
+    <div class="form-section">
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Overall Material Quality (1-10)</label>
+                    <input type="number" name="overall_qual" required min="1" max="10" value="{{ form_values.overall_qual }}">
+                </div>
+                <div class="form-group">
+                    <label>Above Ground Living Area (sq ft)</label>
+                    <input type="number" name="gr_liv_area" required value="{{ form_values.gr_liv_area }}">
+                </div>
+                <div class="form-group">
+                    <label>Garage Capacity (Cars)</label>
+                    <input type="number" name="garage_cars" required value="{{ form_values.garage_cars }}">
+                </div>
+                <div class="form-group">
+                    <label>Total Basement Area (sq ft)</label>
+                    <input type="number" name="total_bsmt_sf" required value="{{ form_values.total_bsmt_sf }}">
+                </div>
+                <div class="form-group">
+                    <label>Full Bathrooms</label>
+                    <input type="number" name="full_bath" required value="{{ form_values.full_bath }}">
+                </div>
+                <button type="submit">Calculate Valuation</button>
+            </form>
 
-        // Apply saved theme on load
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-        }
-    </script>
+            {% if prediction %}
+            <div class="result">
+                {{ prediction }}
+            </div>
+            {% if amount_in_words %}
+            <div class="amount-words">
+                {{ amount_in_words|capfirst }}
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
 </body>
 </html>
