@@ -15,10 +15,6 @@ This project implements a **decoupled architecture**, separating the machine lea
 * **Modern UI/UX:** A responsive, full-screen split layout built with vanilla CSS.
 * **Localized Output:** Automatically converts base USD predictions into cleanly formatted Indian Rupees (₹) for the local market.
 
-## 📸 Interface Snapshot
-*(Note: Upload your UI screenshot to GitHub and replace this image link!)*
-![Project UI Snapshot](https://via.placeholder.com/800x400.png?text=Intelligent+Property+Valuation+Dashboard)
-
 ## 🛠️ Technology Stack
 * **Machine Learning:** `scikit-learn`, `pandas`, `numpy`, `joblib`
 * **Web Framework:** Django
